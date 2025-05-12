@@ -1,0 +1,10 @@
+<h1><%= @category.name %></h1>
+
+<% @recipes.each do |recipe| %>
+<li><%= recipe.name %></li>
+<li><%= recipe.description %></li>
+<%= link_to "Delete",
+    review_path(review),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+<% end %>
+</ul>
