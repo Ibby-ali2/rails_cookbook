@@ -1,9 +1,12 @@
-<h1>Bookmark a recipe</h1>
+<div class="form-new mt-5">
+<h1>Add a recipe</h1>
 
 <%= simple_form_for [@category, @bookmark] do |f| %>
 <%= f.input :recipe_id, collection: Recipe.all,label_method: :name, value_method: :id %>
 <%= f.input :comment %>
-<%= f.submit %>
-<% end %>
-<%= link_to "Home", categories_path %>
+<%= f.submit class: "btn btn-info" %>
+<% end %><br>
+
 <%= link_to "Back", category_path(@category) %>
+
+</div>

@@ -1,15 +1,39 @@
+<div class ="banner container" style="background-image: url('<%= image_path "banner.jpg" %>' )" >
 <h1><%= @category.name %></h1>
+</div>
+<div class="container w-75">
+  <div class ="info-top">
+    <h2>Recipes</h2>
+    <%= link_to 'Add a recipe', new_category_bookmark_path(@category), class:"btn btn-warning" %>
+    </div>
 
-<ul>
+<div class="cards">
+
   <% @category.bookmarks.each do |bookmark| %>
-    <strong><%= bookmark.recipe.name %></strong><br>
-    <li><%= bookmark.recipe.description %></li>
-      <%= link_to "Delete",
-          bookmark_path(bookmark),
-          data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %><br><br>
-
+  <div class="card-trip">
+    <img src="<%= bookmark.recipe.image_url %>">
+      <%= link_to bookmark_path(bookmark),
+          data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+          class:'btn-delete' do %>
+          <i class="fa-solid fa-trash" %></i>
   <% end %>
-</ul>
 
-<%= link_to "Back", categories_path %>
-<%= link_to "Create a new bookmark", new_category_bookmark_path(@category) %>
+  <div class="card-trip-description">
+    <h3><strong><%= bookmark.recipe.name %></strong></h3>
+   <p><%= bookmark.recipe.description.truncate(100) %></p>
+  </div>
+
+<div class="card-trip-info">
+  <div>
+    <p><%= bookmark.comment %></p>
+    </div>
+
+    <div>
+      <%= bookmark.recipe.rating %> <%= '⭐️' * bookmark.recipe.rating.floor %>
+      </div>
+      </div>
+      </div>
+      <% end %>
+      </div>
+      <%= link_to "Home", categories_path %>
+      </div>

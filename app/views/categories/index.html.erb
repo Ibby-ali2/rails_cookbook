@@ -1,6 +1,30 @@
-<h1>Cook book</h1>
-<ul>
-  <% @categories.each do |category| %>
-  <li><%= link_to category.name, category_path(category) %></li>
+  <div class="container">
+<div class ="banner" style="background-image: url('<%= image_path "banner.jpg" %>' )" >
+  <h1>Cook book</h1>
+  <h3>Save your facourite recipes</h3>
+</div>
+</div>
+
+
+<div class="container">
+  <div class="info-top">
+    <h1>List of Categories</h1>
+    <%= link_to "New Category", new_category_path, class: "btn btn-warning"%>
+  </div>
+
+  <div class="cards">
+    <% @categories.each do |category| %>
+
+      <%= link_to category_path(category) do %>
+      <div class="card-category" style="background-image: url('<%= image_path("banner.jpg") %>')">
+        <div>
+          <h3><%= category.name %></h3>
+          <p><%= category.bookmarks.count %> recipes</p>
+          </div>
+    </div>
+    <% end %>
   <% end %>
-  </ul>
+  </div>
+
+
+</div>

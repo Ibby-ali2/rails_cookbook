@@ -1,0 +1,18 @@
+.banner {
+  background-image: url('banner.jpg');
+  height:400px;
+  background-size: cover;
+  background-position: center;
+  align-content: center;
+  padding: 60px 0;
+  h1, h3{
+    color:white;
+    text-align: center;
+  }
+}
+
+.container{
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 15px;
+}

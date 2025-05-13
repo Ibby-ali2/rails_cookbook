@@ -1,0 +1,30 @@
+.card-trip{
+  overflow:hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  position:relative;
+  padding:1rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+}
+
+.card-trip-description {
+  padding: 16px;
+  h3{
+    font-size:16px;
+    font-weight:bold;
+  }
+}
+
+.btn-delete{
+  position:absolute;
+  right:20px;
+  top:10px;
+}
+
+.card-trip>img{
+  height:200px;
+  width:100%;
+  object-fit:cover;
+}
