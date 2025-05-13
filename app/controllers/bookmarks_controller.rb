@@ -8,7 +8,7 @@ class BookmarksController < ApplicationController
     @category = Category.find(params[:category_id])
     @bookmark = Bookmark.new(bookmark_params)
     @bookmark.category = @category
-    raise
+
     if @bookmark.save
       redirect_to category_path(@category)
     else

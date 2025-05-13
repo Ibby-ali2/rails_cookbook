@@ -1,10 +1,15 @@
 <h1><%= @category.name %></h1>
 
-<% @recipes.each do |recipe| %>
-<li><%= recipe.name %></li>
-<li><%= recipe.description %></li>
-<%= link_to "Delete",
-    review_path(review),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-<% end %>
+<ul>
+  <% @category.bookmarks.each do |bookmark| %>
+    <strong><%= bookmark.recipe.name %></strong><br>
+    <li><%= bookmark.recipe.description %></li>
+      <%= link_to "Delete",
+          bookmark_path(bookmark),
+          data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %><br><br>
+
+  <% end %>
 </ul>
+
+<%= link_to "Back", categories_path %>
+<%= link_to "Create a new bookmark", new_category_bookmark_path(@category) %>
