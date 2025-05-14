@@ -3,6 +3,7 @@
 
 <%= simple_form_for @category do |f| %>
 <%= f.input :name, placeholder: "The category name..." %>
+<%= f.input :photo, as: :file %>
 <%= f.submit class: "btn btn-info"%>
 <% end %>
 

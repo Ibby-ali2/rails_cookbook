@@ -16,12 +16,10 @@
     <% @categories.each do |category| %>
 
       <%= link_to category_path(category) do %>
-      <div class="card-category" style="background-image: url('<%= image_path("banner.jpg") %>')">
-        <div>
+        <div class="card-category" style="<%= category.photo.attached? ? "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('#{ url_for(category.photo)}')" : "background-image: #{asset_path("banner.jpg")}" %>">
           <h3><%= category.name %></h3>
           <p><%= category.bookmarks.count %> recipes</p>
-          </div>
-    </div>
+        </div>
     <% end %>
   <% end %>
   </div>
